@@ -1,53 +1,26 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css'
+import TabLay from '../components/TablaLayout'
 import { Layout, Menu, Breadcrumb, Icon, Table } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-const dataSource = [{
-    key: '1',
-    name: 'Mike',
-    age: 32,
-    address: '10 Downing Street'
-  }, {
-    key: '2',
-    name: 'John',
-    age: 42,
-    address: '10 Downing Street'
-  }, {
-    key: '3',
-    name: 'John',
-    age: 42,
-    address: '10 Downing Street'
-  }, {
-    key: '4',
-    name: 'John',
-    age: 42,
-    address: '10 Downing Street'
-  }, {
-    key: '5',
-    name: 'John',
-    age: 42,
-    address: '10 Downing Street'
-  }
-];
-  
-  const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-  }, {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  }, {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  }];
 
 class LayoutUI extends Component {
+    // constructor(props){
+    //     super(props)
+    //         this.state = {  articulos: []   }
+    // }
+    // componentWillMount(){
+    //     fetch('http://localhost:3001/api/v1/')
+    //         .then((response)=>{
+    //             return response.json();
+    //         })
+    //         .then((articulos)=>{
+    //             this.setState({ articulos: articulos})
+    //         })
+    // }
   render() {
     return (
         <Layout>
@@ -99,7 +72,8 @@ class LayoutUI extends Component {
               <Breadcrumb.Item>App</Breadcrumb.Item>
             </Breadcrumb>
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-            <Table dataSource={dataSource} columns={columns} />
+            {/* <Table dataSource={} columns={} /> */}
+            <TabLay />
             </Content>
           </Layout>
         </Layout>
