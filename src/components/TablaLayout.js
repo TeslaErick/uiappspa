@@ -57,7 +57,7 @@ class TabLay extends Component {
 
   componentDidMount(){
     this.setState({ loading: true });
-    fetch('http://localhost:3001/api/v1')
+    fetch('http://localhost:3001/api/v1/bodega')
     .then(results =>{
       return results.json();
     }).then(data => {
