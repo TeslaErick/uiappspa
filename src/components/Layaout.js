@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css'
 import TabLay from '../components/TablaLayout'
-import { Layout, Menu, Breadcrumb, Icon, Table } from 'antd';
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+import { Layout, Menu, Icon } from 'antd';
+const { Header, Content, Sider, Footer } = Layout;
 
 
 class LayoutUI extends Component {
@@ -23,61 +22,58 @@ class LayoutUI extends Component {
     // }
   render() {
     return (
-        <Layout>
-        <Header className="header">
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            style={{ lineHeight: '64px' }}
-          >
-            <Menu.Item key="1">Pedido Sugerido a Tiendas</Menu.Item>
-            {/* <Menu.Item key="2">nav 2</Menu.Item> */}
-            {/* <Menu.Item key="3">nav 3</Menu.Item> */}
-          </Menu>
-        </Header>
-        <Layout>
-          <Sider width={200} style={{ background: '#fff' }}>
-            <Menu
-              mode="inline"
-              defaultSelectedKeys={['1']}
-              defaultOpenKeys={['sub1']}
-              style={{ height: '100%', borderRight: 0 }}
-            >
-              <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
-                <Menu.Item key="1">option1</Menu.Item>
-                <Menu.Item key="2">option2</Menu.Item>
-                <Menu.Item key="3">option3</Menu.Item>
-                <Menu.Item key="4">option4</Menu.Item>
-              </SubMenu>
-              <SubMenu key="sub2" title={<span><Icon type="laptop" />subnav 2</span>}>
-                <Menu.Item key="5">option5</Menu.Item>
-                <Menu.Item key="6">option6</Menu.Item>
-                <Menu.Item key="7">option7</Menu.Item>
-                <Menu.Item key="8">option8</Menu.Item>
-              </SubMenu>
-              <SubMenu key="sub3" title={<span><Icon type="notification" />subnav 3</span>}>
-                <Menu.Item key="9">option9</Menu.Item>
-                <Menu.Item key="10">option10</Menu.Item>
-                <Menu.Item key="11">option11</Menu.Item>
-                <Menu.Item key="12">option12</Menu.Item>
-              </SubMenu>
-            </Menu>
-          </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-            {/* <Table dataSource={} columns={} /> */}
+      <Layout>
+      <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }}>
+        <div className="logo" />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span className="nav-text">Pedido Sugerido</span>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Icon type="video-camera" />
+            <span className="nav-text">nav 2</span>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Icon type="upload" />
+            <span className="nav-text">nav 3</span>
+          </Menu.Item>
+          <Menu.Item key="4">
+            <Icon type="bar-chart" />
+            <span className="nav-text">nav 4</span>
+          </Menu.Item>
+          <Menu.Item key="5">
+            <Icon type="cloud-o" />
+            <span className="nav-text">nav 5</span>
+          </Menu.Item>
+          <Menu.Item key="6">
+            <Icon type="appstore-o" />
+            <span className="nav-text">nav 6</span>
+          </Menu.Item>
+          <Menu.Item key="7">
+            <Icon type="team" />
+            <span className="nav-text">nav 7</span>
+          </Menu.Item>
+          <Menu.Item key="8">
+            <Icon type="shop" />
+            <span className="nav-text">nav 8</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>
+      <Layout style={{ marginLeft: 200 }}>
+        <Header style={{ background: '#fff', padding: 0, textAlign: 'center'}}><h1>Pedidos</h1></Header>
+        <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+
+          <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
             <TabLay />
-            </Content>
-          </Layout>
-        </Layout>
+          </div>
+
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Super Promociones Acayucan ©2018 Created by Proyecto Dual
+        </Footer>
       </Layout>
+    </Layout>
     );
   }
 }

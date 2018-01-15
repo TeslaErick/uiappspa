@@ -3,22 +3,14 @@ import { Table } from 'antd';
 import reqwest from 'reqwest';
 
 const columns = [{
-  title: 'Name',
-  dataIndex: 'name',
+  title: 'Articulo',
+  dataIndex: 'Articulo',
   sorter: true,
-  render: name => `${name.first} ${name.last}`,
   width: '20%',
 }, {
-  title: 'Gender',
-  dataIndex: 'gender',
-  filters: [
-    { text: 'Male', value: 'male' },
-    { text: 'Female', value: 'female' },
-  ],
+  title: 'MinUV',
+  dataIndex: 'MinUV',
   width: '20%',
-}, {
-  title: 'Email',
-  dataIndex: 'email',
 }];
 
 class TabLay extends Component {
@@ -41,25 +33,21 @@ class TabLay extends Component {
       ...filters,
     });
   }
+
   fetch = (params = {}) => {
-    console.log('params:', params);
     this.setState({ loading: true });
     reqwest({
-      url: 'https://randomuser.me/api',
-      method: 'get',
-      data: {
-        results: 10,
-        ...params,
-      },
+      url: 'http://localhost:3001/api/v1/',
+      method: 'GET',
       type: 'json',
     }).then((data) => {
       const pagination = { ...this.state.pagination };
       // Read total count from server
       // pagination.total = data.totalCount;
-      pagination.total = 200;
+      pagination.total = 500;
       this.setState({
         loading: false,
-        data: data.results,
+        data: data.recordset,
         pagination,
       });
     });
